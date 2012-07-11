@@ -1,7 +1,7 @@
 package commands;
 
 public class EditCommand implements Command {
-        public EditCommand(Receiver rec, int id, String text) {
+        public EditCommand(Receiver rec, Integer id, String text) {
                 this.rec = rec;
                 this.id = id;
                 this.text = text;
@@ -13,6 +13,6 @@ public class EditCommand implements Command {
         public void undo() {}
 
         private Receiver rec;
-        private int id;
+        private Integer id;
         private String text;
 }

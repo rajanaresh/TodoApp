@@ -1,6 +1,6 @@
 package commands;
 
-import listmodel.getter.GetText;
+import listmodel.att.GetText;
 
 public class PrintTextCommand extends Command {
         public PrintTextCommand(Receiver rec) {
@@ -8,7 +8,7 @@ public class PrintTextCommand extends Command {
         }
         
         pubic void execute() {
-                rec.setGetter(new GetText(rec));
+                rec.setAttributesTemplate(new GetText());
                 rec.notifyObservers();
                                 
         }

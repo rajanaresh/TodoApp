@@ -1,7 +1,7 @@
-package listmodel.getter;
+package listmodel.att;
 
 import listmodel.item.Item;
 
 public abstract class AttributesTemplate {
-        public String hook(Item i) {}
+        public abstract String hook(Item i);
 }

@@ -1,10 +1,14 @@
 package listmodel;
 
-public class PrintAttributes extends Observer {
-        public void update(Observable obs, object arg) {
-                Set att = obs.getItemAttributes();
-                System.out.println("Size = " + add.size());
-                Iterator it = add.iterator();
+import java.util.Iterator;
+import java.util.Set;
+import listmodel.att.AttributesTemplate;
+
+public class PrintAttributes implements Observer {
+        public void update(Observable obs, Object arg) {
+                Set att = ((ListModel)obs).getItemAttributes();
+                System.out.println("Size = " + att.size());
+                Iterator it = att.iterator();
                 while(it.hasNext()) {
                         System.out.println(it.next());
                 }

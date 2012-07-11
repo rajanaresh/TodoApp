@@ -1,7 +1,7 @@
 package commands;
 
 public class RemoveCommand implements Command {
-        public RemoveCommand(Receiver rec, int id) {
+        public RemoveCommand(Receiver rec, Integer id) {
                 this.rec = rec;
                 this.id = id;
         }
@@ -12,5 +12,5 @@ public class RemoveCommand implements Command {
         public void undo() {}
 
         private Receiver rec;
-        private int id;
+        private Integer id;
 }

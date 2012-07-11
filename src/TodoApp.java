@@ -1,6 +1,6 @@
 import listmodel.*;
 import listmodel.item.Item;
-import listmodel.getter.*;
+import listmodel.att.*;
 import commands.*;
 
 /** Make the app multithreaded. Will resolve a lot of dependencies*/
@@ -12,12 +12,13 @@ public class TodoApp {
                 
                 ListModel list = new ListModel();
                 CommandInvoker invoker = new CommandInvoker();
+                CommandFactory commfactory = new CommandFactory(list);
 
                 //register observers
                 //read conf files from a separate thread to make it dynamic
                 //registration of observers
                 
-                /**Separate thread for registration purpose would be better*/
+                /**Separate thread for registering observers would be better*/
                 Set<Observer> obs = new HashSet();
                 obs.add(new PrintAttributes());
                 Iterator it = obs.iterator();

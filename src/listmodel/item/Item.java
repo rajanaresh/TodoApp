@@ -6,7 +6,7 @@ import java.lang.Math;
 
 public class Item {
 
-        public Item(int id, String text) {
+        public Item(Integer id, String text) {
                 this.id = id;
                 this.text = text;
                 cal = Calendar.getInstance();
@@ -22,7 +22,7 @@ public class Item {
         }
 
         /**Only getter which doesn't return a String. Need to be decided*/
-        public int getId() {
+        public Integer getId() {
                 return id;
         }
         public String getText() {

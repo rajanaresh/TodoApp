@@ -1,14 +1,25 @@
 package listmodel;
 
+import commands.Receiver;
+import listmodel.att.AttributesTemplate;
 import listmodel.item.Item;
 
+import java.util.Map;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.Random;
+
+
 /** Will make this class a singleton */
+/** Check for autoboxing and unboxing issues */
 public class ListModel extends ObservableAdaptor implements Receiver {
 
         public ListModel() {
-                this(new HashMap<int, Item>(), false);
+                this(new HashMap<Integer, Item>(), false);
         }
-        public ListModel(Map<int, Item> items, boolean change) {
+        public ListModel(Map<Integer, Item> items, boolean change) {
                 this.items = items;
                 this.change = change;
                 rand = new Random();
@@ -54,37 +65,30 @@ public class ListModel extends ObservableAdaptor implements Receiver {
                 setChanged();
         }
 
-        /** ALL GETTER METHODS FOR THE OBSERVER. Used template pattern for these
-        public Set getItemAttributes() {
-                return getter.templateMethod();
-        }
-        */
+        /** ALL GETTER METHODS FOR THE OBSERVER.  */
 
         public Set getItemAttributes() {
-                Set returnset = new HashSet();
-                Set itemset = items.values();
-                Iterator it = itemset.iterator();
+                Set<Object> returnset = new HashSet<Object>();
+                Set<Map.Entry<Integer, Item>> entryset = items.entrySet();
+                Iterator<Map.Entry<Integer, Item>> it = entryset.iterator();
                 while(it.hasNext()) {
-                        returnset.add(att.hook(it.next()));
+                        Map.Entry<Integer, Item> temp = it.next();
+                        returnset.add(att.hook(temp.getValue()));
                 }
+                return returnset;
         }
 
-        /**
-           public void setGetter(GetterTemplate getter) {
-                this.getter = getter;
+        public void setAttributesTemplate(AttributesTemplate att) {
+                this.att = att;
         }
-        public GetterTemplate getGetter() {
-                return getter;
+        public AttributesTemplate getAttributesTemplate() {
+                return att;
         }
-        public Set entries() {
-                return items.entrySet();
-        }
-        */
-
-        private Map<int, Items> items;
+        
+        private Map<Integer, Item> items;
         private boolean change;
         private Random rand;
-        private AttributesTemplate att = new AttributesTemplate();
+        private AttributesTemplate att;
         /** private GetterTemplate getter;*/
 }
 

@@ -1,5 +1,7 @@
 package commands;
 
+import listmodel.ListModel;
+
 public class RemoveCommand implements Command {
         public RemoveCommand(Receiver rec, Integer id) {
                 this.rec = rec;
@@ -7,7 +9,7 @@ public class RemoveCommand implements Command {
         }
 
         public void execute() {
-                rec.removeItem(id);                
+                ((ListModel)rec).removeItem(id);                
         }
         public void undo() {}
 

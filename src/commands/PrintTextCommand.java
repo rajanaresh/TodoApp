@@ -1,16 +1,16 @@
 package commands;
 
 import listmodel.att.GetText;
+import listmodel.ListModel;
 
-public class PrintTextCommand extends Command {
+public class PrintTextCommand implements Command {
         public PrintTextCommand(Receiver rec) {
                 this.rec = rec;
         }
         
-        pubic void execute() {
-                rec.setAttributesTemplate(new GetText());
-                rec.notifyObservers();
-                                
+        public void execute() {
+                ((ListModel)rec).setAttributesTemplate(new GetText());
+                ((ListModel)rec).notifyObservers();
         }
         public void undo() {}
         

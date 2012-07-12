@@ -1,5 +1,7 @@
 package commands;
 
+import listmodel.ListModel;
+
 public class CreateCommand implements Command {
         public CreateCommand(Receiver rec, String text) {
                 this.rec = rec;
@@ -7,7 +9,7 @@ public class CreateCommand implements Command {
         }
 
         public void execute() {
-                rec.addItem(text);
+                ((ListModel)rec).addItem(text);
         }
         public void undo() {}
 

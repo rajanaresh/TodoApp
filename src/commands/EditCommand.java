@@ -1,5 +1,7 @@
 package commands;
 
+import listmodel.ListModel;
+
 public class EditCommand implements Command {
         public EditCommand(Receiver rec, Integer id, String text) {
                 this.rec = rec;
@@ -8,7 +10,7 @@ public class EditCommand implements Command {
         }
         
         public void execute() {
-                rec.changeItem(id, text);
+                ((ListModel)rec).changeItem(id, text);
         }
         public void undo() {}
 

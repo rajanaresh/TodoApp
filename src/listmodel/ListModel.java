@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.Random;
-
+import java.lang.Math;
 
 /** Will make this class a singleton */
 /** Check for autoboxing and unboxing issues */
@@ -35,7 +35,7 @@ public class ListModel extends ObservableAdaptor implements Receiver {
         }
         /**PRIVATE*/
         private int uniqueInteger() {
-                int temp = rand.nextInt();
+                int temp = Math.abs(rand.nextInt());
                 while(items.get(temp) != null)
                         temp = rand.nextInt();
                 
